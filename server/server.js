@@ -5,6 +5,7 @@ const cors = require("cors");
 const taskRoutes = require("./routes/taskRoutes");
 
 dotenv.config();
+console.log("MONGO_URI:", process.env.MONGO_URI);
 
 const app = express();
 

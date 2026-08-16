@@ -88,10 +88,34 @@ const completeTask = async (req, res) => {
   }
 };
 
+const uncompleteTask = async (req, res) => {
+  try {
+    const task = await Task.findByIdAndUpdate(
+      req.params.id,
+      { status: "Pending" },
+      { new: true }
+    );
+
+    if (!task) {
+      return res.status(404).json({
+        message: "Task not found"
+      });
+    }
+
+    res.status(200).json(task);
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
   createTask,
   getAllTasks,
   updateTask,
   deleteTask,
   completeTask,
+  uncompleteTask,
 };
