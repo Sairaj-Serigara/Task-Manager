@@ -25,7 +25,8 @@ function App() {
 
       <TaskForm fetchTasks={fetchTasks} />
 
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks}
+      fetchTasks={fetchTasks} />
     </div>
   );
 }

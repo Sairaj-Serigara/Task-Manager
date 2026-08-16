@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
 
-function TaskForm() {
+function TaskForm({ fetchTasks }) {
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -23,7 +23,7 @@ function TaskForm() {
         ...task,
         status: "Pending",
       });
-
+      fetchTasks();
       alert("Task Added Successfully!");
 
       setTask({
